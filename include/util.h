@@ -11,7 +11,7 @@
  * 返回值
  * 指定长度的和
  */
-double sum(double *arrays,int length);
+double sum(double *arrays, int length);
 /**
  * 求平均函数
  * -------
@@ -22,7 +22,7 @@ double sum(double *arrays,int length);
  * 返回值
  * 指定长度的平均值
  */
-double average(double *arrays,int length);
+double average(double *arrays, int length);
 /**
  * 计算总评成绩函数
  * -------
@@ -35,5 +35,5 @@ double average(double *arrays,int length);
  * 返回值
  * 总评成绩
  */
-double total(double score1,double score2,double per1,double per2);
+double total(double score1, double score2, double per1, double per2);
 #endif UTIL_H_

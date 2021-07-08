@@ -2,7 +2,7 @@
 //主菜单
 void mainMenu()
 {
-  int fn=-1;
+  int fn = -1;
   printf("---------请选择操作---------\n\n");
   printf("\
 1.读取数据\n\
@@ -17,29 +17,36 @@ void mainMenu()
   //清空输入缓冲避免不必要的错误
   fflush(stdin);
   //获取输入并跳转对应功能
-  scanf("%d",&fn);
-  switch(fn)
+  scanf("%d", &fn);
+  switch (fn)
   {
-    case 1:
-      break;
-    case 2:
-      break;
-    case 3:
-      break;
-    case 4:
-      break;
-    case 5:
-      break;
-    case 6:
-      break;
-    case 7:
-      break;
-    case 0:
-      exit(0);
-      break;
-    default:
-      printf("无此功能！");
-      break;
+  case 1:
+    subMenu1();
+    break;
+  case 2:
+    subMenu2();
+    break;
+  case 3:
+    subMenu3();
+    break;
+  case 4:
+    subMenu4();
+    break;
+  case 5:
+    subMenu5();
+    break;
+  case 6:
+    subMenu6();
+    break;
+  case 7:
+    subMenu7();
+    break;
+  case 0:
+    exit(0);
+    break;
+  default:
+    printf("无此功能！");
+    break;
   }
 }
 //读取数据
@@ -63,7 +70,7 @@ void subMenu2()
 //删除数据
 void subMenu3()
 {
-  
+
   //清空输入缓冲避免不必要的错误
   fflush(stdin);
   //选择要删除的数据
@@ -96,7 +103,7 @@ void subMenu6()
   return;
 }
 //求平均
-void subMenu(7)
+void subMenu7()
 {
   //求平均
   //输出
