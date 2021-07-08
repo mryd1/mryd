@@ -1,3 +1,5 @@
+//编辑注意！！！
+//此文件需要重构，有可能会完全重写
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
