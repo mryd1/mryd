@@ -10,5 +10,5 @@ typedef struct Student
   double pscore;
   //期末成绩
   double qscore;
-}Student;
+} Student;
 #endif

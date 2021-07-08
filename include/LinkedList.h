@@ -20,9 +20,9 @@ void add(LinkedList *ll, void *e);
 //移除链表末尾的节点
 void remove(LinkedList *ll);
 //在操作指针前插入新的节点
-void addBefore2Curr(LinkedList *ll,void *e);
+void addBefore2Curr(LinkedList *ll, void *e);
 //在操作指针后插入新的节点
-void addAfter2Curr(LinkedList *ll,void *e);
+void addAfter2Curr(LinkedList *ll, void *e);
 //移除操作指针指向的节点
 void removeCurr(LinkedList *ll);
 //搜索数据所在的位置
