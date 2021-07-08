@@ -96,7 +96,7 @@ void subMenu6()
   return;
 }
 //求平均
-void subMenu(7)
+void subMenu7()
 {
   //求平均
   //输出

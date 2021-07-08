@@ -129,7 +129,7 @@ void removeCurr(LinkedList *ll) {
 int search(LinkedList *ll, void *e) {
     resetCurr(ll);
     int n = 0;
-    Elemtype *p=ll->curr->data;
+    void *p=ll->curr->data;
     while (ll->curr!=NULL&&p==e)
     {
         moveCurr2Next(ll);
@@ -156,14 +156,14 @@ void *indexOf(LinkedList *ll, int index) {
     return ll->curr->data;
 }
 //修改操作指针指向的数据
-void setCurrData(LinkedList *ll, Elemtype *e) {
+void setCurrData(LinkedList *ll, void *e) {
     ll->curr->data=e;
 }
 //获得操作指针指向的数据
 void *getCurrData(LinkedList *ll) {
     return ll->curr->data;
 }
-//Elemtype *toArray(LinkedList *ll) {}
+//合并链表
 void contain(LinkedList *ll1, LinkedList *ll2) {
     ll1->tail->next=ll2->head->prev;
     ll1->length+=ll2->length;
