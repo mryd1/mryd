@@ -78,14 +78,14 @@ void add(LinkedList *ll, void *e)
     ll->tail->next = NULL;
 }
 //移除链表末尾的节点
-void remove(LinkedList *ll)
+void remove(LinkedList *ll,void *e)
 {
     if (isEmply(ll))
     {
         return;
     }
     Node *n = ll->tail;
-    free(n->data);
+    e=n->data;
     ll->tail = ll->tail->prev;
     ll->tail = NULL;
     free(n);
@@ -124,7 +124,7 @@ void addAfter2Curr(LinkedList *ll, void *e)
     ll->length++;
 }
 //移除操作指针指向的节点
-void removeCurr(LinkedList *ll)
+void removeCurr(LinkedList *ll,void *e)
 {
     if (ll->curr != NULL && ll->length != 0)
     {
@@ -132,7 +132,7 @@ void removeCurr(LinkedList *ll)
         ll->curr->prev->next = ll->curr->next;
         ll->curr->next->prev = ll->curr->prev;
         ll->curr = ll->curr->prev;
-        free(n->data);
+        e=n->data;
         free(n);
     }
 }
