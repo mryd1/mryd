@@ -58,7 +58,18 @@ void mainMenu()
 void subMenu1()
 {
   //从文件中读取数据
-  //保存到链表中
+  FILE *p;
+  Student *s;
+  ll=initLinkList(); //初始化链表
+  p=fopen("info.bin","r");//打开数据文件
+  while(!feof(p))
+  {
+    s=(Student*)malloc(sizeof(Student));//分配新的内存
+    fscanf(p,"%ld,%s,%lf,%lf\n",&s->id,&s->name,&s->pscore,&s->qscore);//从文件中提取数据
+    //保存到链表中
+    add(ll,s);
+  }
+  fclose(p);//关闭文件
   //返回控制到主菜单
   return;
 }
@@ -70,7 +81,7 @@ void subMenu2()
   Student *s=(Student*)malloc(sizeof(Student));
   //从控制台中输入数据
   printf("输入格式：学号,姓名,平时成绩,期末成绩\n");
-  scanf("%ld,%s,%ld,%lf",&s->id,&s->name,&s->pscore,&s->qscore);
+  scanf("%ld,%s,%lf,%lf",&s->id,&s->name,&s->pscore,&s->qscore);
   //保存到链表中
   add(ll,s);
   //返回控制到主菜单
@@ -99,7 +110,24 @@ void subMenu3()
 //保存数据
 void subMenu4()
 {
+  int len,i;
+  FILE *p;
+  Student *s;
+  p=fopen("info.bin","w");//重新创建文件
+  len=getLength(ll);//获取学生数量
+  i=1;
   //保存数据到文件
+  resetCurr(ll);//重置链表操作指针
+  while(i<=len)
+  {
+    s=(Student *)getCurrData(ll);//获取当前操作指针指向的学生
+    fprintf(p,"%ld,%s,%lf,%lf\n",s->id,s->name,s->pscore,s->qscore);//写入文件
+    currMoveNext(ll);//操作指针后移
+    i++;
+  }
+  fclose(p);//关闭文件
+  destoryLinkedList(ll);//删除链表
+
   //刷新链表
   subMenu1();
   //返回控制到主菜单
