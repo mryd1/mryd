@@ -18,13 +18,13 @@ void resetCurr(LinkedList *ll);
 //向链表末尾追加新的节点
 void add(LinkedList *ll, void *e);
 //移除链表末尾的节点
-void remove(LinkedList *ll);
+void remove(LinkedList *ll,void *e);
 //在操作指针前插入新的节点
 void addBefore2Curr(LinkedList *ll, void *e);
 //在操作指针后插入新的节点
 void addAfter2Curr(LinkedList *ll, void *e);
 //移除操作指针指向的节点
-void removeCurr(LinkedList *ll);
+void removeCurr(LinkedList *ll,void *e);
 //搜索数据所在的位置
 int search(LinkedList *ll, void *e);
 //返回给定位置的数据

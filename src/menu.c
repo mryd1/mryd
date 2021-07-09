@@ -1,7 +1,11 @@
 #include <stdio.h>
+#include "LinkedList.h"
+#include "student.h"
+LinkedList *ll;
 //主菜单
 void mainMenu()
 {
+  ll=initLinkList();
   int fn = -1;
   printf("---------请选择操作---------\n\n");
   printf("\
@@ -62,19 +66,30 @@ void subMenu2()
 {
   //清空输入缓冲避免不必要的错误
   fflush(stdin);
+  Student *s=(Student*)malloc(sizeof(Student));
   //从控制台中输入数据
+  printf("输入格式：学号,姓名,平时成绩,期末成绩\n");
+  scanf("%ld,%s,%ld,%lf",&s->id,&s->name,&s->pscore,&s->qscore);
   //保存到链表中
+  add(ll,s);
   //返回控制到主菜单
   return;
 }
 //删除数据
 void subMenu3()
 {
-
+  long id;
   //清空输入缓冲避免不必要的错误
   fflush(stdin);
   //选择要删除的数据
+  printf("输入要删除的学号：");
+  scanf("%ld",&id);
   //从链表中删除
+  resetCurr(ll);
+  while(((Student*)(getCurrData(ll)))->id!=id){
+    currMoveNext(ll);
+  }
+  removeCurr(ll,NULL);
   //返回控制到主菜单
   return;
 }
@@ -83,6 +98,7 @@ void subMenu4()
 {
   //保存数据到文件
   //刷新链表
+  subMenu1();
   //返回控制到主菜单
   return;
 }
