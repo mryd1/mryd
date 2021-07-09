@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "LinkedList.h"
 #include "student.h"
 LinkedList *ll;
@@ -79,6 +80,7 @@ void subMenu2()
 void subMenu3()
 {
   long id;
+  Student *s;
   //清空输入缓冲避免不必要的错误
   fflush(stdin);
   //选择要删除的数据
@@ -89,7 +91,8 @@ void subMenu3()
   while(((Student*)(getCurrData(ll)))->id!=id){
     currMoveNext(ll);
   }
-  removeCurr(ll,NULL);
+  removeCurr(ll,s);
+  free(s);
   //返回控制到主菜单
   return;
 }
