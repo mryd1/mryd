@@ -42,7 +42,7 @@ int getLength(LinkedList *ll)
     return ll->length;
 }
 //移动操作指针到下一节点
-void currMoveNext(LinkedList *ll)
+void currMove2Next(LinkedList *ll)
 {
     if (ll->curr != ll->tail)
     {
@@ -50,7 +50,7 @@ void currMoveNext(LinkedList *ll)
     }
 }
 //移动操作指针到上一节点
-void currMovePrev(LinkedList *ll)
+void currMove2Prev(LinkedList *ll)
 {
     if (ll->curr != ll->head)
     {
@@ -78,7 +78,7 @@ void add(LinkedList *ll, void *e)
     ll->tail->next = NULL;
 }
 //移除链表末尾的节点
-void remove(LinkedList *ll,void *e)
+void removeN(LinkedList *ll,void *e)
 {
     if (isEmply(ll))
     {
