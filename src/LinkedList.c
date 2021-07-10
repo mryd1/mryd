@@ -1,5 +1,5 @@
-
 #include <stdlib.h>
+#include "LinkedList.h"
 //节点结构
 typedef struct Node
 {
@@ -8,13 +8,13 @@ typedef struct Node
     void *data;
 } Node;
 //链表结构
-typedef struct
+struct LinkedList
 {
     Node *head;
     Node *tail;
     Node *curr;
     int length;
-} LinkedList;
+};
 //初始化链表
 LinkedList *initLinkList()
 {
@@ -42,7 +42,7 @@ int getLength(LinkedList *ll)
     return ll->length;
 }
 //移动操作指针到下一节点
-void currMove2Next(LinkedList *ll)
+void currMoveNext(LinkedList *ll)
 {
     if (ll->curr != ll->tail)
     {
@@ -50,7 +50,7 @@ void currMove2Next(LinkedList *ll)
     }
 }
 //移动操作指针到上一节点
-void currMove2Prev(LinkedList *ll)
+void currMovePrev(LinkedList *ll)
 {
     if (ll->curr != ll->head)
     {
@@ -67,7 +67,8 @@ void add(LinkedList *ll, void *e)
 {
     Node *n = (Node *)malloc(sizeof(Node));
     n->prev = ll->tail;
-    ll->tail->next = n;
+    if(ll->tail!=NULL){
+    ll->tail->next = n;}
     ll->tail = n;
     ll->tail->data = e;
     if (ll->head == NULL)
@@ -92,7 +93,7 @@ void removeN(LinkedList *ll,void *e)
     ll->length--;
 }
 //在操作指针前插入新的节点
-void addBefore2Curr(LinkedList *ll, void *e)
+void addBeforeCurr(LinkedList *ll, void *e)
 {
     if (isEmply(ll))
     {
@@ -108,7 +109,7 @@ void addBefore2Curr(LinkedList *ll, void *e)
     ll->length++;
 }
 //在操作指针后插入新的节点
-void addAfter2Curr(LinkedList *ll, void *e)
+void addAfterCurr(LinkedList *ll, void *e)
 {
     if (isEmply(ll) || ll->tail == ll->curr)
     {
@@ -144,7 +145,7 @@ int search(LinkedList *ll, void *e)
     void *p = ll->curr->data;
     while (ll->curr != NULL && p == e)
     {
-        moveCurr2Next(ll);
+        currMoveNext(ll);
         p = ll->curr->data;
         n++;
     }
@@ -166,7 +167,7 @@ void *indexOf(LinkedList *ll, int index)
     resetCurr(ll);
     while (index_p != index)
     {
-        moveCurr2Next();
+        currMoveNext(ll);
         index_p++;
     }
     return ll->curr->data;
@@ -201,7 +202,7 @@ void clearLinkedList(LinkedList *ll)
     {
         free(ll->curr->data);
         ll->curr->data = NULL;
-        moveCurr2Next(ll);
+        currMoveNext(ll);
     }
     return;
 }
